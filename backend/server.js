@@ -14,9 +14,9 @@ import connectDB from './config/db.js'
 connectDB()
 
 const corsOptions = {
-    origin: ["https://shapparz.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true
+    origin: "https://shapparz.vercel.app",
+    methods: "POST,GET,PUT,DELETE",
+    allowedHeaders: 'Content-Type,Authorization'
 }
 
 //middlewares
