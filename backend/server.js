@@ -23,9 +23,13 @@ const corsOptions = {
 app.use(express.json())
 app.use(morgan('dev'))
 app.use(cookieParser())
-app.use(cors(
-    corsOptions
-))
+    app.use(cors({
+        origin: ["https://shapparz.vercel.app"],
+        methods: ["POST", "GET", "PUT", "DELETE"],
+        credentials: true,
+        allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
+
+    }));
 
 //routes
 app.use('/api/v1/auth', authRoutes)
