@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "client": "npm run dev --prefix ./client",
-    "server": "concurrently \"npm run start\" \"npm run client\""
+    "client": "npm run dev --prefix ../client",
+    "restart": "concurrently \"npm run start\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
