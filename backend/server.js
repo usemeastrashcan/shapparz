@@ -13,16 +13,18 @@ const app = express()
 import connectDB from './config/db.js'
 connectDB()
 
+const corsOptions = {
+    origin: ["https://shapparz.vercel.app"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true
+}
+
 //middlewares
 app.use(express.json())
 app.use(morgan('dev'))
 app.use(cookieParser())
 app.use(cors(
-    {
-        origin: ["https://shapparz.vercel.app"],
-        methods: ["POST", "GET", "PUT", "DELETE"],
-        credentials: true
-    }
+    corsOptions
 ))
 
 //routes
