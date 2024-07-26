@@ -17,7 +17,13 @@ connectDB()
 app.use(express.json())
 app.use(morgan('dev'))
 app.use(cookieParser())
-app.use(cors())
+app.use(cors(
+    {
+        origin: ["https://shapparz.vercel.app/"],
+        methods: ["POST", "GET", "PUT", "DELETE"],
+        credentials: true
+    }
+))
 
 //routes
 app.use('/api/v1/auth', authRoutes)
