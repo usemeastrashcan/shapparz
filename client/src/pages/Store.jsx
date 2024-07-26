@@ -6,6 +6,8 @@ import { useCart } from '../context/Cart';
 import { useAuth } from '../context/Auth';
 
 const Store = () => {
+  axios.defaults.withCredentials = true;
+
 
   const apiUrl = import.meta.env.VITE_API
 

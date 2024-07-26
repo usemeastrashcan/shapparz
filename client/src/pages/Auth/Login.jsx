@@ -7,6 +7,8 @@ import { useAuth } from '../../context/Auth'
 
 const Login = () => {
 
+  axios.defaults.withCredentials = true;
+
   const apiUrl = import.meta.env.VITE_API
   
     const [password, setPassword] = useState("")

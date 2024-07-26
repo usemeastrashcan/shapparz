@@ -4,6 +4,8 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import {  NavLink, useNavigate } from 'react-router-dom';
 export const Registration = () => {
+	axios.defaults.withCredentials = true;
+
 
     const[name, setName] = useState("");
     const[password, setPassword] = useState("");
@@ -16,6 +18,7 @@ export const Registration = () => {
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
+
 		e.preventDefault();
 		try {
 			const res = await axios.post(`${apiUrl}/api/v1/auth/register`, {

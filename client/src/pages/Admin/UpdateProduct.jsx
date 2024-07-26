@@ -8,6 +8,8 @@ import { useNavigate, useParams } from "react-router-dom";
 const { Option } = Select;
 
 const UpdateProduct = () => {
+  axios.defaults.withCredentials = true;
+
   const navigate = useNavigate();
   const params = useParams();
   const [name, setName] = useState("");

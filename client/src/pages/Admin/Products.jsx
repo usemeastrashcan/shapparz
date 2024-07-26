@@ -8,6 +8,8 @@ const { Option } = Select;
 import { useState } from "react";
 
 const Product = () => {
+  axios.defaults.withCredentials = true;
+
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");

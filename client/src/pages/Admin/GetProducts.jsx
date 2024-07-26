@@ -5,6 +5,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 const GetProducts = () => {
+  axios.defaults.withCredentials = true;
+
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const apiUrl = import.meta.env.VITE_API

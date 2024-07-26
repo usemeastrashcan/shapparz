@@ -7,6 +7,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const CartPage = () => {
+  axios.defaults.withCredentials = true;
+
   const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
   const [products, setProducts] = useState([]);
