@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(cors({
-    origin: ["https://shapparz.vercel.app"],
+    origin: ["https://shapparz.vercel.app", "http://localhost:5173"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
