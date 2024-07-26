@@ -23,9 +23,9 @@ app.use(cors())
 app.use('/api/v1/auth', authRoutes)
 app.use('/api/v1/products', productRoutes)
 
-app.get('/', ()=>
+app.get('/', (req, res)=>
 {
-    console.log("Welcome")
+    res.status(201).send({message: "Server is Running"})
 })
 
 const PORT = process.env.PORT || 8080
