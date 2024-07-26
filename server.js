@@ -1,0 +1,36 @@
+import express from 'express'
+import dotenv from 'dotenv'
+import morgan from 'morgan'
+import cookieParser from 'cookie-parser'
+import authRoutes from './routes/auth.routes.js'
+import productRoutes from './routes/product.routes.js'
+import cors from 'cors'
+dotenv.config({path: './.env'})
+
+const app = express()
+
+//connectDB
+import connectDB from './config/db.js'
+connectDB()
+
+//middlewares
+app.use(express.json())
+app.use(morgan('dev'))
+app.use(cookieParser())
+app.use(cors())
+
+//routes
+app.use('/api/v1/auth', authRoutes)
+app.use('/api/v1/products', productRoutes)
+
+app.get('/', ()=>
+{
+    console.log("Welcome")
+})
+
+const PORT = process.env.PORT || 8080
+
+app.listen(PORT, ()=>
+{
+    console.log(`Server is Running on Port, ${PORT}`)
+})
