@@ -19,7 +19,7 @@ app.use(morgan('dev'))
 app.use(cookieParser())
 app.use(cors(
     {
-        origin: ["https://shapparz.vercel.app/"],
+        origin: ["https://shapparz.vercel.app"],
         methods: ["POST", "GET", "PUT", "DELETE"],
         credentials: true
     }
