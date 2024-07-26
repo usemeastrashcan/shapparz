@@ -18,12 +18,7 @@ connectDB();
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(cors({
-    origin: ["https://shapparz.vercel.app", "http://localhost:5173"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
-}));
+app.use(cors());
 
 // Routes
 app.use('/api/v1/auth', authRoutes);
@@ -38,3 +33,10 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+// {
+//     origin: ["https://shapparz.vercel.app", "http://localhost:5173"],
+//     methods: ["POST", "GET", "PUT", "DELETE"],
+//     credentials: true,
+//     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"]
+// }
