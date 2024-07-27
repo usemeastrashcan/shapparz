@@ -15,26 +15,23 @@ const app = express();
 connectDB();
 
 // Middlewares
+app.options('*', cors());
+
+app.use(cors({
+    origin: 'https://shapparz.vercel.app', // Replace with your frontend domain
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // If you need to send cookies or authentication headers
+
+}));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cookieParser());
 
-// CORS Options
-const corsOptions = {
-    origin: 'https://shapparz.vercel.app', // Replace with your frontend domain
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-};
+// Routes
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/products',  productRoutes);
 
-// Apply CORS middleware to specific routes
-app.options('/api/v1/auth/*', cors(corsOptions)); // Preflight request for auth routes
-app.use('/api/v1/auth', cors(corsOptions), authRoutes);
-
-app.options('/api/v1/products/*', cors(corsOptions)); // Preflight request for product routes
-app.use('/api/v1/products', cors(corsOptions), productRoutes);
-
-// General route
-app.get('/', cors(corsOptions), (req, res) => {
+app.get('/', (req, res) => {
     res.status(201).send({ message: "Server is Running" });
 });
 
