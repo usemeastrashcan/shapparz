@@ -28,8 +28,8 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 
 // Routes
-app.use('/api/v1/auth',cors(), authRoutes);
-app.use('/api/v1/products',cors(),  productRoutes);
+app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/products',  productRoutes);
 
 app.get('/', (req, res) => {
     res.status(201).send({ message: "Server is Running" });
