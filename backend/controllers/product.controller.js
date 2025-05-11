@@ -23,7 +23,7 @@ const createProduct = async(req, res)=>
 
     // const photo = await uploadOnCloudinary(localPhotoPath)
     // if(!photo) throw new ApiError(500, "Photo not Uploaded to Cloudinary")
-
+    
     let photo;
     if (req.files && req.files['photo']) {
         const file =req.files['photo'][0]
